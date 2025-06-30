@@ -36,7 +36,7 @@ export default function CasinoLanding() {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 max-w-4xl gap-3 sm:gap-5 mx-auto mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 max-w-4xl gap-3 sm:gap-5 mx-auto mb-6">
           <Card
             icon="💰"
             title="20% en el primer deposito"
