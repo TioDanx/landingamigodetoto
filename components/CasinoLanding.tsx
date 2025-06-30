@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import Card from "./Card";
 import Image from "next/image";
-import Testimonial from "./Testmonial";
+import Testimonial from "./Testimonial";
 export default function CasinoLanding() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const [players, setPlayers] = useState(10000);
@@ -44,7 +44,7 @@ export default function CasinoLanding() {
         setTypedText((prev) => prev + fullText[index]);
         index += 1;
       } else {
-        clearInterval(interval); // 🚫 Detenemos correctamente cuando termina
+        clearInterval(interval);
       }
     }, 80);
 

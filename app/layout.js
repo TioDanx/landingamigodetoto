@@ -58,7 +58,7 @@ export const metadata = {
     shortcut: "/logo.webp",
     apple: "/logo.webp",
   },
-  metadataBase: new URL("https://ganamos365landing.vercel.app"), // <-- poné tu dominio aquí también
+  metadataBase: new URL("https://ganamos365landing.vercel.app"), 
 };
 
 export default function RootLayout({ children }) {
