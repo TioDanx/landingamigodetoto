@@ -1,9 +1,24 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+
 import Card from "./Card";
 import Image from "next/image";
 import Testimonial from "./Testmonial";
 export default function CasinoLanding() {
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (ctaRef.current) {
+        const rect = ctaRef.current.getBoundingClientRect();
+        setShowStickyCTA(rect.bottom < 0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="relative min-h-dvh w-full overflow-hidden text-white font-sans">
       <div className="absolute inset-0 z-0">
@@ -25,7 +40,7 @@ export default function CasinoLanding() {
           promociones exclusivas.
         </p>
 
-        <div className="flex justify-center mb-12 animate-bounce">
+        <div ref={ctaRef} className="flex justify-center mb-12 animate-bounce">
           <a
             href="https://wa.link/zwfp0v"
             target="_blank"
@@ -106,7 +121,18 @@ export default function CasinoLanding() {
             📢 Seguinos en Facebook
           </h2>
         </div>
-
+        {showStickyCTA && (
+          <div className="fixed bottom-4 inset-x-0 flex justify-center z-50 animate-pulse">
+            <a
+              href="https://wa.link/zwfp0v"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 text-white font-semibold text-base px-6 py-3 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300"
+            >
+              🎁 ¡Obtené tu bono YA!
+            </a>
+          </div>
+        )}
         <footer className="text-center text-sm text-gray-400 border-t border-white/10 pt-4">
           Juego responsable +18 · © {new Date().getFullYear()} Ganamos365
         </footer>
