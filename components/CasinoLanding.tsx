@@ -6,7 +6,22 @@ import Image from "next/image";
 import Testimonial from "./Testmonial";
 export default function CasinoLanding() {
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [players, setPlayers] = useState(10000);
   const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const fullText = "¡ Bienvenido a Ganamos365!";
+
+  const randomizePlayers = () => {
+    setTimeout(() => {
+      const operation = Math.random() > 0.3 ? "+" : "-";
+      const activeUsers =
+        operation === "+"
+          ? Math.floor(Math.random() * 100)
+          : Math.floor(Math.random() * 100);
+      setPlayers(players + activeUsers);
+      randomizePlayers();
+    }, 500);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,9 +31,26 @@ export default function CasinoLanding() {
       }
     };
 
+    randomizePlayers();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    let index = 0;
+
+    const interval = setInterval(() => {
+      if (index < fullText.length - 1) {
+        setTypedText((prev) => prev + fullText[index]);
+        index += 1;
+      } else {
+        clearInterval(interval); // 🚫 Detenemos correctamente cuando termina
+      }
+    }, 80);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative min-h-dvh w-full overflow-hidden text-white font-sans">
       <div className="absolute inset-0 z-0">
@@ -33,7 +65,8 @@ export default function CasinoLanding() {
         </div>
 
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-2">
-          ¡Bienvenido a Ganamos365!
+          {typedText}
+          <span className="animate-pulse">|</span>
         </h1>
         <p className="text-center text-gray-200 mb-10 max-w-2xl mx-auto">
           Tu destino online para la mejor experiencia en juegos de azar y
@@ -74,7 +107,7 @@ export default function CasinoLanding() {
           />
           <Card
             icon="👥"
-            title="+10.000 jugadores activos"
+            title={`+${players} jugadores activos`}
             description="Únete a una comunidad que no para de crecer."
           />
           <Card
