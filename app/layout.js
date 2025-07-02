@@ -1,10 +1,10 @@
 import "./globals.css";
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-})
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata = {
   title: {
@@ -33,7 +33,7 @@ export const metadata = {
     title: "Ganamos365 - Casino Online con Bonos y Retiros 24hs",
     description:
       "Sumate a Ganamos365, el casino online con bonos exclusivos, retiros 24hs y miles de jugadores activos.",
-    url: "https://ganamos365landing.vercel.app", 
+    url: "https://ganamos365landing.vercel.app",
     siteName: "Ganamos365",
     images: [
       {
@@ -58,15 +58,36 @@ export const metadata = {
     shortcut: "/logo.webp",
     apple: "/logo.webp",
   },
-  metadataBase: new URL("https://ganamos365landing.vercel.app"), 
+  metadataBase: new URL("https://ganamos365landing.vercel.app"),
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body
-        className={`antialiased ${poppins.className} overflow-x-hidden`}
-      >
+      <head>
+        <script>
+          {`
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '749963750755701');
+fbq('track', 'PageView');`}
+        </script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style="display:none"
+            src="https://www.facebook.com/tr?id=749963750755701&ev=PageView&noscript=1"
+          />
+        </noscript>
+      </head>
+      <body className={`antialiased ${poppins.className} overflow-x-hidden`}>
         {children}
       </body>
     </html>
