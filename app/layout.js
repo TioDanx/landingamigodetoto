@@ -1,18 +1,18 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Urbanist } from "next/font/google";
 
-const poppins = Poppins({
+const urbanist = Urbanist({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
 export const metadata = {
   title: {
-    default: "Ganamos365",
-    template: "%s | Ganamos365",
+    default: "E&G Gambling",
+    template: "%s | E&G Gambling",
   },
   description:
-    "Sumate a Ganamos365, el casino online con bonos exclusivos, retiros 24hs y miles de jugadores activos. ¡Obtené tu bono YA!",
+    "Sumate a E&G Gambling, el casino online con bonos exclusivos, retiros 24hs y miles de jugadores activos. ¡Obtené tu bono YA!",
   keywords: [
     "casino online",
     "casino virtual",
@@ -21,7 +21,7 @@ export const metadata = {
     "casino online con retiros 24hs",
     "casino online con bonos",
     "casino online con bonos de bienvenida",
-    "Ganamos365",
+    "E&G Gambling",
     "bono de bienvenida",
     "casino con Mercado Pago",
     "retirar dinero 24hs",
@@ -30,17 +30,17 @@ export const metadata = {
     "casino confiable",
   ],
   openGraph: {
-    title: "Ganamos365 - Casino Online con Bonos y Retiros 24hs",
+    title: "E&G Gambling - Casino Online con Bonos y Retiros 24hs",
     description:
-      "Sumate a Ganamos365, el casino online con bonos exclusivos, retiros 24hs y miles de jugadores activos.",
-    url: "https://ganamos365landing.vercel.app",
-    siteName: "Ganamos365",
+      "Sumate a E&G Gambling, el casino online con bonos exclusivos, retiros 24hs y miles de jugadores activos.",
+    url: "https://E&GGambling.vercel.app",
+    siteName: "E&G Gambling",
     images: [
       {
         url: "/logo.webp",
         width: 800,
         height: 600,
-        alt: "Logo de Ganamos365",
+        alt: "Logo de E&G Gambling",
       },
     ],
     locale: "es_AR",
@@ -48,9 +48,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ganamos365 - Casino Online",
+    title: "E&G Gambling - Casino Online",
     description:
-      "Bonos de bienvenida, retiros rápidos, +10.000 jugadores activos. ¡Probá tu suerte en Ganamos365!",
+      "Bonos de bienvenida, retiros rápidos, +10.000 jugadores activos. ¡Probá tu suerte en E&G Gambling!",
     images: ["/logo.webp"],
   },
   icons: {
@@ -58,36 +58,13 @@ export const metadata = {
     shortcut: "/logo.webp",
     apple: "/logo.webp",
   },
-  metadataBase: new URL("https://ganamos365landing.vercel.app"),
+  metadataBase: new URL("https://E&GGambling.vercel.app"),
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <head>
-        <script>
-          {`
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '749963750755701');
-fbq('track', 'PageView');`}
-        </script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=749963750755701&ev=PageView&noscript=1"
-          />
-        </noscript>
-      </head>
-      <body className={`antialiased ${poppins.className} overflow-x-hidden`}>
+      <body className={`antialiased ${urbanist.className} overflow-x-hidden`}>
         {children}
       </body>
     </html>

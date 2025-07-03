@@ -12,11 +12,11 @@ export default function Card({ icon, title, description }) {
         duration: 0.6,
       }}
       viewport={{ once: true, amount: 0.3 }}
-      className="bg-gray-900 bg-gradient-to-b from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-6 shadow-md hover:shadow-xl transition-opacity duration-300 opacity-90"
+      className=" bg-gradient-to-b from-yellow-600 to-yellow-400 border border-orange-300 rounded-lg p-6 shadow-md hover:shadow-xl transition-opacity duration-300 opacity-90"
     >
-      <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-      <p className="text-gray-400">{description}</p>
+      <div className="text-4xl mb-4 text-black">{icon}</div>
+      <h3 className="text-xl font-semibold text-black mb-2">{title}</h3>
+      <p className="text-black/70">{description}</p>
     </motion.div>
   );
 }
